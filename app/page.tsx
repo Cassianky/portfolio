@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import { Button } from "@/components/ui/button";
+import Typewriter from "typewriter-effect";
 
 export default function Home() {
   return (
@@ -23,19 +25,35 @@ export default function Home() {
       </header>
       <div className="flex flex-col basis-1/4"></div>
       <main className="flex flex-col gap-8 items-center basis-1/2">
-        <h4 className="text-2xl font-semibold tracking-tight">
-          Hello, Welcome
-        </h4>
-        <h1 className="font-extrabold tracking-tight text-7xl">
-          I am Cassia Ng
-        </h1>
-        <h3 className="text-2xl tracking-tight">
-          Site Reliability Engineer based in Singapore
-        </h3>
+        <Typewriter
+          options={{
+            loop: true,
+            delay: 75,
+            cursor: "",
+            wrapperClassName: "flex flex-col gap-8 text-center",
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString(
+                '<h4 class="text-2xl font-semibold tracking-tight text-slate-800">Hello Welcome</h4>'
+              )
+              .pauseFor(500)
+              .typeString(
+                '<h1 class="font-extrabold tracking-tight text-7xl text-slate-800">I am Cassia Ng</h1>'
+              )
+              .pauseFor(500)
+              .typeString(
+                '<h3 class="text-2xl tracking-tight text-slate-800">Site Reliability Engineer based in Singapore</h3>'
+              )
+              .pauseFor(3000)
+              .deleteAll()
+              .start();
+          }}
+        />
       </main>
       <footer className="flex gap-6 items-center justify-center basis-1/6">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-slate-800"
           href="https://www.linkedin.com/in/cassia-n-aa5637172/"
           target="_blank"
           rel="noopener noreferrer"
@@ -45,6 +63,7 @@ export default function Home() {
             width="24"
             height="24"
             viewBox="0 0 24 24"
+            className="text-slate-800"
           >
             <path
               fill="currentColor"
@@ -54,7 +73,7 @@ export default function Home() {
           Linkedin
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-slate-800"
           href="https://github.com/Cassianky"
           target="_blank"
           rel="noopener noreferrer"
@@ -64,6 +83,7 @@ export default function Home() {
             width="24"
             height="24"
             viewBox="0 0 24 24"
+            className="text-slate-800"
           >
             <path
               fill="currentColor"
