@@ -131,8 +131,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
-        <div className="flex flex-col h-screen">
-          <header className="flex justify-between p-6 bg-slate-50 gap-3 items-center">
+        <div className="flex flex-col min-h-screen">
+          <header className="fixed top-0 flex justify-between p-6 bg-slate-50 gap-3 items-center w-full">
             <div className="flex justify-center items-center bg-slate-800 h-9 w-9 rounded-full">
               <p className="text-m tracking-tight text-slate-50">CN</p>
             </div>
@@ -155,7 +155,7 @@ export default function RootLayout({
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
-          <footer className="flex gap-6 items-center justify-center py-4 bg-slate-200">
+          <footer className="fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
             <small>© 2024 Cassia Ng Kai Ying . All Rights Reserved.</small>
           </footer>
           <Sheet open={open} onOpenChange={setOpen}>
