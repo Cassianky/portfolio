@@ -268,7 +268,7 @@ export default function RootLayout({
           <main className="flex-grow bg-slate-50">{children}</main>
           <footer className="md:fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
             <small className="max-sm:text-xs">
-              © {year} Cassia Ng Kai Ying . All Rights Reserved.
+              © {year} Cassia Ng Kai Ying. All Rights Reserved.
             </small>
           </footer>
           <Sheet open={open} onOpenChange={setOpen}>

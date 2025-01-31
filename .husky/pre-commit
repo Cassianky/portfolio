@@ -1,0 +1,6 @@
+echo "🔍 Running Pre-Commit Hook..."
+npx eslint "app/**/*.{js,jsx,ts,tsx}"|| {
+  echo "❌ ESLint failed. Fix errors before committing!"
+  exit 1
+}
+echo "✅ ESLint Passed. Proceeding with commit."
