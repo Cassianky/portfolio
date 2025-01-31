@@ -146,6 +146,8 @@ export default function RootLayout({
     };
   }, []);
 
+  let year = new Date().getFullYear();
+
   return (
     <html lang="en">
       <body
@@ -190,7 +192,7 @@ export default function RootLayout({
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
           <footer className="fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
-            <small>© 2024 Cassia Ng Kai Ying . All Rights Reserved.</small>
+            <small>© {year} Cassia Ng Kai Ying . All Rights Reserved.</small>
           </footer>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
