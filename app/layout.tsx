@@ -146,7 +146,7 @@ export default function RootLayout({
     };
   }, []);
 
-  let year = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
     <html lang="en">
