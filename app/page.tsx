@@ -42,8 +42,11 @@ export default function Home() {
               transition: { duration: 1, delay: 2 },
             }}
           >
-            <h1 className="text-5xl font-extrabold tracking-tight md:text-9xl text-slate-800 text-center">
+            <h1 className="hidden md:block font-extrabold tracking-tight md:text-9xl text-slate-800 text-center">
               Cassia Ng
+            </h1>
+            <h1 className="text-7xl font-extrabold tracking-tight md:hidden text-slate-800 text-center">
+              Cassia
             </h1>
           </motion.div>
           <motion.div
@@ -54,8 +57,8 @@ export default function Home() {
               transition: { duration: 1, delay: 3 },
             }}
           >
-            <h3 className="text-lg md:text-3xl tracking-tight font-semibold text-slate-800 text-center max-sm:p-3">
-              Site Reliability Engineer based in Singapore
+            <h3 className="text-xl md:text-3xl tracking-tight font-semibold text-slate-800 text-center max-sm:p-3">
+              Site Reliability Engineer
             </h3>
           </motion.div>
           <motion.div
@@ -68,7 +71,7 @@ export default function Home() {
           >
             <div className="flex gap-2">
               <a
-                className="flex items-center justify-center md:w-10 md:h-10 w-8 h-8"
+                className="flex items-center justify-center md:w-10 md:h-10 w-9 h-9"
                 href="https://www.linkedin.com/in/cassia-n-aa5637172/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -85,7 +88,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                className="flex items-center justify-center md:w-10 md:h-10 w-8 h-8"
+                className="flex items-center justify-center md:w-10 md:h-10 w-9 h-9"
                 href="https://github.com/Cassianky"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,7 +150,7 @@ export default function Home() {
         viewport={{ amount: 0.2 }}
         transition={{ duration: 1 }}
         id="about"
-        className="flex flex-col justify-between w-full pt-[84px] md:pb-[52px] md:h-[900px] min-h-screen bg-slate-100"
+        className="flex flex-col justify-between w-full pt-[84px] md:pb-[52px] sm:h-[900px] md:h-[1000px] min-h-screen bg-slate-100"
       >
         <div className="flex flex-col gap-2 items-center justify-center">
           <h2 className="text-2xl md:text-4xl font-bold text-slate-800 pt-12">
@@ -171,12 +174,12 @@ export default function Home() {
             </figcaption>
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center p-8">
+        <div className="flex flex-col gap-2 items-center p-8 max-sm:mt-7">
           <h4 className="text-sm md:text-lg text-slate-800 text-center">
             Learn More About My Experiences
           </h4>
           <a
-            className="flex items-center justify-center w-16 h-16"
+            className="flex items-center justify-center md:w-16 md:h-16 w-12 h-12"
             href="https://github.com/Cassianky"
             target="_blank"
             rel="noopener noreferrer"
