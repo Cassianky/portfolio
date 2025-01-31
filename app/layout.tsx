@@ -266,7 +266,7 @@ export default function RootLayout({
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
-          <footer className="md:fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
+          <footer className="w-full flex gap-6 items-center justify-center py-10 bg-slate-200">
             <small className="max-sm:text-xs">
               © {year} Cassia Ng Kai Ying. All Rights Reserved.
             </small>
@@ -274,7 +274,7 @@ export default function RootLayout({
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <div>
-                <Button className="max-sm:hidden fixed bottom-10 right-10 bg-slate-800">
+                <Button className="hidden md:flex fixed bottom-10 right-10 bg-slate-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="256"
