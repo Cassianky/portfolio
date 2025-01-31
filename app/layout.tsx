@@ -149,6 +149,10 @@ export default function RootLayout({
 
   const year = new Date().getFullYear();
 
+  const sections = ["home", "about", "experience", "projects", "books"];
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <html lang="en">
       {/* Google Site Verification for SEO purposes */}
@@ -161,23 +165,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
-        <Analytics />
         <div className="flex flex-col min-h-screen">
-          <header className="fixed top-0 flex justify-between p-6 bg-slate-50 gap-3 items-center w-full z-50">
-            <div
-              className="flex justify-center items-center bg-slate-800 h-9 w-9 rounded-full hover:cursor-pointer"
-              onClick={() => {
-                document.getElementById("home")?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }}
-            >
-              <p className="text-m tracking-tight text-slate-50">CN</p>
-            </div>
-            <div className="flex gap-3">
-              {["home", "about", "experience", "projects", "books"].map(
-                (section) => (
+          <header className="fixed top-0 z-50 w-full">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex justify-between p-6 bg-slate-50 gap-3 items-center">
+              <div
+                className="flex justify-center items-center bg-slate-800 h-9 w-9 rounded-full hover:cursor-pointer"
+                onClick={() => {
+                  document.getElementById("home")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+              >
+                <p className="text-m tracking-tight text-slate-50">CN</p>
+              </div>
+              <div className="flex gap-3">
+                {sections.map((section) => (
                   <Button
                     key={section}
                     className={`text-m text-slate-800 ${
@@ -195,32 +199,111 @@ export default function RootLayout({
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </Button>
-                )
-              )}
+                ))}
+              </div>
+            </div>
+            {/* Mobile Navigation */}
+            <div className="md:hidden flex justify-between p-4 bg-slate-50 gap-3 items-center">
+              <div
+                className="flex justify-center items-center bg-slate-800 h-9 w-9 rounded-full hover:cursor-pointer"
+                onClick={() => {
+                  document.getElementById("home")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+              >
+                <p className="text-m tracking-tight text-slate-50">CN</p>
+              </div>
+              <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+                <SheetTrigger asChild>
+                  <a className="md:hidden flex items-center justify-center w-8 h-8">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      className="w-full h-full text-slate-400 hover:text-slate-800 hover:cursor-pointer"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.7"
+                        d="M2.75 12.25h10.5m-10.5-4h10.5m-10.5-4h10.5"
+                      />
+                    </svg>
+                  </a>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-3/4 bg-slate-50 p-4">
+                  <SheetHeader className="hidden">
+                    <SheetTitle>Menu</SheetTitle>
+                  </SheetHeader>
+                  <div className="mt-6 flex flex-col items-center gap-6">
+                    {sections.map((section) => (
+                      <Button
+                        key={section}
+                        className={`text-lg text-slate-800 ${
+                          section === activeSection
+                            ? "underline underline-offset-8"
+                            : ""
+                        }`}
+                        variant={null}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          document.getElementById(section)?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }}
+                      >
+                        {section.charAt(0).toUpperCase() + section.slice(1)}
+                      </Button>
+                    ))}
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
-          <footer className="fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
-            <small>© {year} Cassia Ng Kai Ying . All Rights Reserved.</small>
+          <footer className="md:fixed bottom-0 w-full flex gap-6 items-center justify-center py-4 bg-slate-200">
+            <small className="max-sm:text-xs">
+              © {year} Cassia Ng Kai Ying . All Rights Reserved.
+            </small>
           </footer>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button className="fixed bottom-10 right-10 bg-slate-800">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="256"
-                  height="256"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M232 64v128a16 16 0 0 1-16 16H83l-32.6 28.16l-.09.07A15.9 15.9 0 0 1 40 240a16.05 16.05 0 0 1-6.79-1.52A15.84 15.84 0 0 1 24 224V64a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16"
-                  />
-                </svg>
-                Contact Me
-              </Button>
+              <div>
+                <Button className="max-sm:hidden fixed bottom-10 right-10 bg-slate-800">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="256"
+                    height="256"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M232 64v128a16 16 0 0 1-16 16H83l-32.6 28.16l-.09.07A15.9 15.9 0 0 1 40 240a16.05 16.05 0 0 1-6.79-1.52A15.84 15.84 0 0 1 24 224V64a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16"
+                    />
+                  </svg>
+                  Contact Me
+                </Button>
+                <a className="md:hidden fixed bottom-5 right-5 flex items-center justify-center p-3 bg-slate-800 text-slate-50 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="256"
+                    height="256"
+                    viewBox="0 0 256 256"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M232 64v128a16 16 0 0 1-16 16H83l-32.6 28.16l-.09.07A15.9 15.9 0 0 1 40 240a16.05 16.05 0 0 1-6.79-1.52A15.84 15.84 0 0 1 24 224V64a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16"
+                    />
+                  </svg>
+                </a>
+              </div>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="w-full md:w-3/4 bg-slate-50">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                   <SheetHeader>

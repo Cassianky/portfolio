@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main>
       <motion.section
-        className="flex flex-col justify-between items-center w-full pt-[84px] pb-[52px] h-screen"
+        className="flex flex-col justify-between items-center w-full pt-[84px] md:pb-[52px] min-h-screen"
         initial={!hasLoaded ? {} : { opacity: 0, y: -150 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -29,7 +29,7 @@ export default function Home() {
             onInit={(typewriter) => {
               typewriter
                 .typeString(
-                  '<h4 class="text-2xl tracking-tight text-slate-800">Hello, my name is</h4>'
+                  '<h4 class="text-xl md:text-2xl tracking-tight text-slate-800 text-center">Hello, my name is</h4>'
                 )
                 .start();
             }}
@@ -42,7 +42,7 @@ export default function Home() {
               transition: { duration: 1, delay: 2 },
             }}
           >
-            <h1 className="font-extrabold tracking-tight text-9xl text-slate-800">
+            <h1 className="text-5xl font-extrabold tracking-tight md:text-9xl text-slate-800 text-center">
               Cassia Ng
             </h1>
           </motion.div>
@@ -54,7 +54,7 @@ export default function Home() {
               transition: { duration: 1, delay: 3 },
             }}
           >
-            <h3 className="text-3xl tracking-tight font-semibold text-slate-800">
+            <h3 className="text-lg md:text-3xl tracking-tight font-semibold text-slate-800 text-center max-sm:p-3">
               Site Reliability Engineer based in Singapore
             </h3>
           </motion.div>
@@ -68,7 +68,7 @@ export default function Home() {
           >
             <div className="flex gap-2">
               <a
-                className="flex items-center justify-center w-10 h-10"
+                className="flex items-center justify-center md:w-10 md:h-10 w-8 h-8"
                 href="https://www.linkedin.com/in/cassia-n-aa5637172/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -85,7 +85,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                className="flex items-center justify-center w-10 h-10"
+                className="flex items-center justify-center md:w-10 md:h-10 w-8 h-8"
                 href="https://github.com/Cassianky"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -113,9 +113,11 @@ export default function Home() {
           }}
         >
           <div className="flex flex-col gap-2 items-center p-8">
-            <h4 className="text-lg text-slate-800">Learn More About Me</h4>
+            <h4 className="text-sm md:text-lg text-slate-800">
+              Learn More About Me
+            </h4>
             <a
-              className="flex items-center justify-center w-16 h-16"
+              className="flex items-center justify-center md:w-16 md:h-16 w-12 h-12"
               href="#about"
               onClick={(e) => {
                 e.preventDefault();
@@ -145,30 +147,32 @@ export default function Home() {
         viewport={{ amount: 0.2 }}
         transition={{ duration: 1 }}
         id="about"
-        className="flex flex-col justify-between w-full pt-[84px] pb-[52px] h-screen bg-slate-100"
+        className="flex flex-col justify-between w-full pt-[84px] md:pb-[52px] md:h-[900px] min-h-screen bg-slate-100"
       >
         <div className="flex flex-col gap-2 items-center justify-center">
-          <h2 className="text-4xl font-bold text-slate-800 pt-12">About Me</h2>
-          <p className="mt-4 text-lg text-slate-600 text-center max-w-3xl">
+          <h2 className="text-2xl md:text-4xl font-bold text-slate-800 pt-12">
+            About Me
+          </h2>
+          <p className="max-sm:p-4 text-sm mt-4 md:text-lg text-slate-600 text-center max-w-3xl">
             I am a Site Reliability Engineer at Apple, based in Singapore, with
             a passion for creating highly available, scalable, and reliable
             systems. I graduated from the National University of Singapore in
             2024. My expertise spans backend and frontend development, data
             analytics, and DevOps.
           </p>
-          <div className="mt-8 flex flex-col items-center">
+          <div className="mt-8 flex flex-col items-center md:w-72 md:h-92 w-52 h-72">
             <img
               src="/me.jpg"
               alt="Cassia Ng"
-              className="rounded-lg shadow-lg w-72 h-92 object-cover"
+              className="rounded-lg shadow-lg object-cover"
             />
-            <figcaption className="mt-4 text-sm text-slate-600 italic">
+            <figcaption className="mt-4 md:text-sm text-xs text-slate-600 italic text-center">
               Cassia Ng - Taken at Ladies&#39; Market in Hong Kong
             </figcaption>
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center p-8">
-          <h4 className="text-lg text-slate-800">
+          <h4 className="text-sm md:text-lg text-slate-800 text-center">
             Learn More About My Experiences
           </h4>
           <a
