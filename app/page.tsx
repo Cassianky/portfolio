@@ -17,7 +17,7 @@ export default function Home() {
         initial={!hasLoaded ? {} : { opacity: 0, y: -150 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        viewport={{ amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         id="home"
       >
         <div className="flex flex-grow flex-col items-center justify-center gap-8">
@@ -148,7 +148,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 150 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.2 }}
-        transition={{ duration: 1 }}
+        transition={{ once: true, duration: 1 }}
         id="about"
         className="flex flex-col justify-between w-full pt-[84px] md:pb-[52px] sm:h-[900px] md:h-[1000px] min-h-screen bg-slate-100"
       >
