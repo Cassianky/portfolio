@@ -5,7 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import {
@@ -70,7 +70,7 @@ export default function RootLayout({
     },
   });
   const [submitting, setSubmitting] = useState(false);
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit() {
     // Detected as a bot
     if (honeypot) {
       toast({
@@ -90,7 +90,7 @@ export default function RootLayout({
         message: form.getValues("message"),
       },
     })
-      .then((response) => {
+      .then(() => {
         handleServerResponse(
           true,
           "Thank you!",

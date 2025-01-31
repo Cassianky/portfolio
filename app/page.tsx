@@ -163,7 +163,7 @@ export default function Home() {
               className="rounded-lg shadow-lg w-72 h-92 object-cover"
             />
             <figcaption className="mt-4 text-sm text-slate-600 italic">
-              Cassia Ng - Taken at Ladies' Market in Hong Kong
+              Cassia Ng - Taken at Ladies&#39; Market in Hong Kong
             </figcaption>
           </div>
         </div>
