@@ -30,6 +30,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -160,6 +161,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
+        <Analytics />
         <div className="flex flex-col min-h-screen">
           <header className="fixed top-0 flex justify-between p-6 bg-slate-50 gap-3 items-center w-full z-50">
             <div
