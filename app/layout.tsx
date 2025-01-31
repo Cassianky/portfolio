@@ -165,6 +165,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
+        <Analytics />
         <div className="flex flex-col min-h-screen">
           <header className="fixed top-0 z-50 w-full">
             {/* Desktop Navigation */}
