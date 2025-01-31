@@ -219,6 +219,9 @@ export default function RootLayout({
                     <SheetDescription>
                       You can contact me via LinkedIn or by submitting the form
                       below. I would reach out to you as soon as possible.
+                      <br />
+                      <br /> Please do not spam as notifications would be sent
+                      to my Telegram account directly.
                     </SheetDescription>
                   </SheetHeader>
                   <div className="flex flex-col gap-4 py-4">
