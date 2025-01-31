@@ -5,7 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import {
@@ -126,32 +126,58 @@ export default function RootLayout({
     setHoneypot(event.target.value);
   };
 
+  const [activeSection, setActiveSection] = useState("");
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        console.log(entries);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
         <div className="flex flex-col min-h-screen">
-          <header className="fixed top-0 flex justify-between p-6 bg-slate-50 gap-3 items-center w-full">
+          <header className="fixed top-0 flex justify-between p-6 bg-slate-50 gap-3 items-center w-full z-50">
             <div className="flex justify-center items-center bg-slate-800 h-9 w-9 rounded-full">
               <p className="text-m tracking-tight text-slate-50">CN</p>
             </div>
             <div className="flex gap-3">
-              <Button className="text-m text-slate-800" variant="header">
-                Home
-              </Button>
-              <Button className="text-m text-slate-800" variant="header">
-                About
-              </Button>
-              <Button className="text-m text-slate-800" variant="header">
-                Experience
-              </Button>
-              <Button className="text-m text-slate-800" variant="header">
-                Projects
-              </Button>
-              <Button className="text-m text-slate-800" variant="header">
-                Books
-              </Button>
+              {["home", "about", "experience", "projects", "books"].map(
+                (section) => (
+                  <Button
+                    key={section}
+                    className={`text-m text-slate-800 ${
+                      section === activeSection
+                        ? "underline underline-offset-8"
+                        : ""
+                    }"`}
+                    variant="header"
+                    onClick={() => {
+                      document.getElementById(section)?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </Button>
+                )
+              )}
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>

@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <main>
       <motion.section
-        id="home"
         className="flex flex-col justify-between items-center w-full pt-[84px] pb-[52px] h-screen"
-        initial={!hasLoaded ? {} : { opacity: 0, y: 150 }}
+        initial={!hasLoaded ? {} : { opacity: 0, y: -150 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ amount: 0.2 }}
+        id="home"
       >
         <div className="flex flex-grow flex-col items-center justify-center gap-8">
           <Typewriter
@@ -116,9 +116,14 @@ export default function Home() {
             <h4 className="text-lg text-slate-800">Learn More About Me</h4>
             <a
               className="flex items-center justify-center w-16 h-16"
-              href="https://github.com/Cassianky"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("about")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
