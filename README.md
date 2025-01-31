@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) designed and coded by Cassia Ng Kai Ying.
+
+## Website
+
+[https://dev-cassia-ng.vercel.app/](https://dev-cassia-ng.vercel.app/)
 
 ## Getting Started
 
@@ -12,19 +16,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Animations**: Various animations using the `motion` library to enhance the user experience such as typewriter, section transitions etc.
+- **Contact Form**: A contact form integrated with Formspree, including form validation and a honeypot to prevent spam. Notifications are sent to personal email and telegram directly via Formspree.
+- **About Me Section**: Detailed "About Me" section with personal information, a photo, and a description of professional background.
+- **Navigation**: Smooth scrolling to different sections of the page.
+- **Responsive Design (WIP)**: Fully responsive design that works on all devices.
+- **SEO Optimization**: Basic SEO optimization with Google site verification.
+- **Vercel Deployment via GitHub Actions**: GitHub Actions workflow for automatic deployment to Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+## Forking the Repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to fork this repository and make your own modifications to create your own portfolio website.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Last Updated
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+31/1/2025
