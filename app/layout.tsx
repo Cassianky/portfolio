@@ -150,6 +150,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      {/* Google Site Verification for SEO purposes */}
+      <head>
+        <meta
+          name="google-site-verification"
+          content="gX0Fm5MhNUu0uEB5gO6_ytxuhGQvE0ya6cx9WN0u_cA"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
       >
