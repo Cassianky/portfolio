@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -31,16 +30,7 @@ import {
 } from "@/components/ui/sheet";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import CustomCursor from "@/components/cursor";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -162,9 +152,8 @@ export default function RootLayout({
           content="gX0Fm5MhNUu0uEB5gO6_ytxuhGQvE0ya6cx9WN0u_cA"
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
-      >
+      <body className={`antialiased bg-slate-50`}>
+        <CustomCursor />
         <Analytics />
         <div className="flex flex-col min-h-screen">
           <header className="fixed top-0 z-50 w-full">
@@ -187,9 +176,9 @@ export default function RootLayout({
                     key={section}
                     className={`text-m text-slate-800 ${
                       section === activeSection
-                        ? "underline underline-offset-8"
+                        ? "underline-offset-8 underline"
                         : ""
-                    }"`}
+                    }`}
                     variant="header"
                     onClick={() => {
                       document.getElementById(section)?.scrollIntoView({
@@ -266,9 +255,64 @@ export default function RootLayout({
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
-          <footer className="w-full flex gap-6 items-center justify-center py-10 bg-slate-200">
-            <small className="max-sm:text-xs">
-              © {year} Cassia Ng Kai Ying. All Rights Reserved.
+          <footer className="w-full flex py-20 bg-slate-200">
+            <div className="flex gap-20 px-10">
+              <div className="flex flex-col items-start gap-2">
+                <p className="text-slate-400">LINKS</p>
+                <a
+                  className="w-8 h-8 hover:animate-growOnce cursor-pointer"
+                  onClick={() =>
+                    document
+                      .getElementById("home")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Home
+                </a>
+                <a
+                  className="w-8 h-8 hover:animate-growOnce cursor-pointer"
+                  onClick={() =>
+                    document
+                      .getElementById("about")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  About
+                </a>
+                <a
+                  className="w-8 h-8 hover:animate-growOnce cursor-pointer"
+                  onClick={() =>
+                    document
+                      .getElementById("experience")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  Experience
+                </a>
+              </div>
+              <div className="flex flex-col items-start gap-2">
+                <p className="text-slate-400">SOCIAL</p>
+                <a
+                  className="w-8 h-8 hover:animate-growOnce"
+                  href="https://www.linkedin.com/in/cassia-n-aa5637172/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  className="w-8 h-8 hover:animate-growOnce"
+                  href="https://github.com/Cassianky"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <small className="ml-auto self-end text-slate-400 mr-4">
+              Designed and coded by Cassia Ng Kai Ying © {year}. All Rights
+              Reserved.
             </small>
           </footer>
           <Sheet open={open} onOpenChange={setOpen}>

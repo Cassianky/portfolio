@@ -1,6 +1,18 @@
-echo "🔍 Running Pre-Commit Hook..."
+#!/bin/sh
+# This script is used to run pre-commit checks on the codebase
+
+echo "🔍 Running Pre-Commit Hooks..."
+
 npx eslint "app/**/*.{js,jsx,ts,tsx}"|| {
   echo "❌ ESLint failed. Fix errors before committing!"
   exit 1
 }
-echo "✅ ESLint Passed. Proceeding with commit."
+
+# Run Prettier to auto-format code
+echo "✨ Formatting with Prettier..."
+npx prettier --write "app/**/*.{js,jsx,ts,tsx,json,css,md}" || {
+  echo "❌ Prettier formatting failed!"
+  exit 1
+}
+
+echo "✅ All checks passed. Proceeding with commit."
