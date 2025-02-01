@@ -85,14 +85,14 @@ export default function RootLayout({
         handleServerResponse(
           true,
           "Thank you!",
-          "Your message has been sent successfully."
+          "Your message has been sent successfully.",
         );
       })
       .catch((error) => {
         handleServerResponse(
           false,
           "Message failed to send.",
-          error.response.data.error
+          error.response.data.error,
         );
       });
   }
@@ -100,7 +100,7 @@ export default function RootLayout({
   const handleServerResponse = (
     ok: boolean,
     title: string,
-    description: string
+    description: string,
   ) => {
     if (ok) {
       form.reset();
@@ -129,7 +129,7 @@ export default function RootLayout({
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
     sections.forEach((section) => observer.observe(section));
     return () => {
