@@ -85,14 +85,14 @@ export default function RootLayout({
         handleServerResponse(
           true,
           "Thank you!",
-          "Your message has been sent successfully.",
+          "Your message has been sent successfully."
         );
       })
       .catch((error) => {
         handleServerResponse(
           false,
           "Message failed to send.",
-          error.response.data.error,
+          error.response.data.error
         );
       });
   }
@@ -100,7 +100,7 @@ export default function RootLayout({
   const handleServerResponse = (
     ok: boolean,
     title: string,
-    description: string,
+    description: string
   ) => {
     if (ok) {
       form.reset();
@@ -129,7 +129,7 @@ export default function RootLayout({
           }
         });
       },
-      { threshold: 0.6 },
+      { threshold: 0.6 }
     );
     sections.forEach((section) => observer.observe(section));
     return () => {
@@ -139,7 +139,7 @@ export default function RootLayout({
 
   const year = new Date().getFullYear();
 
-  const sections = ["home", "about", "experience", "projects", "books"];
+  const sections = ["home", "about", "experiences"];
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -255,8 +255,8 @@ export default function RootLayout({
             </div>
           </header>
           <main className="flex-grow bg-slate-50">{children}</main>
-          <footer className="w-full flex py-20 bg-slate-200">
-            <div className="flex gap-20 px-10">
+          <footer className="w-full flex flex-col bg-slate-200">
+            <div className="flex gap-20 py-20 px-10">
               <div className="flex flex-col items-start gap-2">
                 <p className="text-slate-400">LINKS</p>
                 <a
@@ -310,7 +310,7 @@ export default function RootLayout({
                 </a>
               </div>
             </div>
-            <small className="ml-auto self-end text-slate-400 mr-4">
+            <small className="self-center text-slate-400 mr-4 justify-self-center p-3 md:p-5">
               Designed and coded by Cassia Ng Kai Ying © {year}. All Rights
               Reserved.
             </small>

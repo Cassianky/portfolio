@@ -57,7 +57,7 @@ export default function Home() {
       bgColor: "bg-teal-100",
     },
     { role: "foodie", action: "eat", emoji: "🍴", bgColor: "bg-blue-100" },
-    { role: "reader", action: "grow", emoji: "📚", bgColor: "bg-purple-100" },
+    { role: "reader", action: "read", emoji: "📚", bgColor: "bg-purple-100" },
     {
       role: "dreamer",
       action: "imagine",
@@ -125,17 +125,16 @@ export default function Home() {
               }}
             >
               <div className="hidden sm:flex items-center gap-3 text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                <span>A</span>
+                <span>I love to</span>
                 <TextLoop
                   className="overflow-visible"
                   transition={textLoopTransition}
                   variants={textLoopVariants}
                 >
                   {heroContent.map((content, index) => (
-                    <span key={index}>{content.role}</span>
+                    <span key={index}>{content.action}</span>
                   ))}
                 </TextLoop>
-                <span> who</span>
                 <span className="flex items-center gap-2 md:gap-4">
                   <TextLoop
                     className="my-auto inline-block h-[3.25rem] overflow-visible md:h-[7.8rem]"
@@ -154,9 +153,11 @@ export default function Home() {
                     ))}
                   </TextLoop>
                 </span>
-
-                <span>to </span>
+              </div>
+              <div className="sm:hidden flex flex-col items-center gap-3 text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+                <span>I love to</span>
                 <TextLoop
+                  className="overflow-visible"
                   transition={textLoopTransition}
                   variants={textLoopVariants}
                 >
@@ -164,51 +165,24 @@ export default function Home() {
                     <span key={index}>{content.action}</span>
                   ))}
                 </TextLoop>
-              </div>
-              <div className="sm:hidden flex flex-col items-center gap-3 text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                <div className="flex items-center gap-2">
-                  <span>A</span>
+                <span className="flex items-center gap-2 md:gap-4">
                   <TextLoop
-                    className="overflow-visible"
+                    className="my-auto inline-block h-[3.25rem] overflow-visible md:h-[7.8rem]"
                     transition={textLoopTransition}
                     variants={textLoopVariants}
                   >
                     {heroContent.map((content, index) => (
-                      <span key={index}>{content.role}</span>
+                      <span
+                        key={index}
+                        className={`relative mx-2 my-auto inline-block aspect-[1.5/1] h-[3.25rem] overflow-visible rounded-full md:mx-4 md:h-[7.8rem] ${content.bgColor}`}
+                      >
+                        <span className="absolute inset-0 flex select-none items-center justify-center text-4xl md:text-7xl">
+                          {content.emoji}
+                        </span>
+                      </span>
                     ))}
                   </TextLoop>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span> who</span>
-                  <span className="flex items-center gap-2 md:gap-4">
-                    <TextLoop
-                      className="my-auto inline-block h-[3.25rem] overflow-visible md:h-[7.8rem]"
-                      transition={textLoopTransition}
-                      variants={textLoopVariants}
-                    >
-                      {heroContent.map((content, index) => (
-                        <span
-                          key={index}
-                          className={`relative mx-2 my-auto inline-block aspect-[1.5/1] h-[3.25rem] overflow-visible rounded-full md:mx-4 md:h-[7.8rem] ${content.bgColor}`}
-                        >
-                          <span className="absolute inset-0 flex select-none items-center justify-center text-4xl md:text-7xl">
-                            {content.emoji}
-                          </span>
-                        </span>
-                      ))}
-                    </TextLoop>
-                  </span>
-
-                  <span>to </span>
-                </div>
-                <TextLoop
-                  transition={textLoopTransition}
-                  variants={textLoopVariants}
-                >
-                  {heroContent.map((content, index) => (
-                    <span key={index}>{content.action}</span>
-                  ))}
-                </TextLoop>
+                </span>
               </div>
             </motion.div>
           </div>
@@ -372,7 +346,7 @@ export default function Home() {
           transition={{ duration: 1 }}
           viewport={{ amount: 0.1 }}
         >
-          <div className="flex flex-col justify-center items-center w-full pt-12">
+          <div className="flex flex-col justify-center items-center w-full py-12">
             <h2 className="text-2xl md:text-4xl font-bold text-slate-800">
               My Experience
             </h2>
