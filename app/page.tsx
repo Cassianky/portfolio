@@ -49,7 +49,12 @@ export default function Home() {
   ];
 
   const heroContent = [
-    { role: "engineer", action: "code", emoji: "💻", bgColor: "bg-green-100" },
+    {
+      role: "engineer",
+      action: "code",
+      emoji: "💻",
+      bgColor: "bg-green-100",
+    },
     {
       role: "explorer",
       action: "discover",
@@ -125,14 +130,16 @@ export default function Home() {
               }}
             >
               <div className="hidden sm:flex items-center gap-3 text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                <span>I love to</span>
                 <TextLoop
                   className="overflow-visible"
                   transition={textLoopTransition}
                   variants={textLoopVariants}
                 >
                   {heroContent.map((content, index) => (
-                    <span key={index}>{content.action}</span>
+                    <span key={index}>
+                      {content.role.charAt(0).toUpperCase() +
+                        String(content.role).slice(1)}
+                    </span>
                   ))}
                 </TextLoop>
                 <span className="flex items-center gap-2 md:gap-4">
@@ -315,7 +322,7 @@ export default function Home() {
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById("experience")?.scrollIntoView({
+                  document.getElementById("experiences")?.scrollIntoView({
                     behavior: "smooth",
                     block: "start",
                   });
@@ -338,7 +345,7 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      <section id="experience">
+      <section id="experiences">
         <motion.div
           className="flex flex-col justify-between items-center w-full pt-[70px] md:pt-[84px] md:pb-[52px] min-h-screen bg-slate-50"
           initial={{ opacity: 0, y: 50 }}
@@ -348,7 +355,7 @@ export default function Home() {
         >
           <div className="flex flex-col justify-center items-center w-full py-12">
             <h2 className="text-2xl md:text-4xl font-bold text-slate-800">
-              My Experience
+              My Experiences
             </h2>
             <h2 className="text-xl md:text-2xl text-slate-800 pt-12">
               My Skills

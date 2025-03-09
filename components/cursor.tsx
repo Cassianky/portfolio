@@ -15,7 +15,7 @@ export default function CustomCursor() {
 
   return (
     <div
-      className="z-[9999] fixed w-4 h-4 bg-slate-800 bg-opacity-75 rounded-full pointer-events-none transition-transform"
+      className="hidden md:flex z-[9999] fixed w-4 h-4 bg-slate-800 bg-opacity-75 rounded-full pointer-events-none transition-transform"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

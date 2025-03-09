@@ -283,7 +283,7 @@ export default function RootLayout({
                   className="w-8 h-8 hover:animate-growOnce cursor-pointer"
                   onClick={() =>
                     document
-                      .getElementById("experience")
+                      .getElementById("experiences")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
